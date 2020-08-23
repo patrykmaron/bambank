@@ -139,3 +139,4 @@ export const Button = styled.button`
       inset 8px 8px 16px rgba(${({ theme }) => theme.colors.shadow}, 0.08);
   }
 `;
+export default H1;

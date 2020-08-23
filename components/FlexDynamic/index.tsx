@@ -30,3 +30,5 @@ export const FlexItem = styled.div`
     margin-bottom: 0;
   }
 `;
+
+export default FlexDynamic;

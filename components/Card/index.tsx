@@ -33,3 +33,5 @@ export const TransactionCard = styled.div`
   margin-top: 1rem;
   text-align: left;
 `;
+
+export default Card;

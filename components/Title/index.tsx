@@ -28,3 +28,5 @@ export const H2 = styled.h1`
     text-align: ${(props: H2) => props.align};
   }
 `;
+
+export default H1;

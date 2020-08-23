@@ -60,7 +60,7 @@ export default function Home({ users }: any) {
 }
 
 Home.getInitialProps = async (ctx: NextPageContext) => {
-  const cookie = ctx.req?.headers.cookie;
+  const cookie = ctx.req.headers.cookie;
 
   const response = await fetch(api + "/api/profile", {
     headers: {
@@ -77,7 +77,7 @@ Home.getInitialProps = async (ctx: NextPageContext) => {
     ctx.res.writeHead(302, {
       Location: api + "/login",
     });
-    ctx.res?.end();
+    ctx.res.end();
   }
 
   const json = await response.json();

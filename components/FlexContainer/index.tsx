@@ -10,3 +10,5 @@ export const FlexContainer = styled.main`
     justify-content: center;
   }
 `;
+
+export default FlexContainer;
