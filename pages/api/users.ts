@@ -1,5 +1,6 @@
 import db from "../../lib/db";
 import { NextApiRequest, NextApiResponse } from "next";
+import authenticated from "../../lib/authenticated";
 
 async function users(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
@@ -15,4 +16,4 @@ async function users(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default users;
+export default authenticated(users);
