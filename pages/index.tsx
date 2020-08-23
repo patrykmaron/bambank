@@ -5,9 +5,10 @@ import Router from "next/router";
 import { NextPageContext } from "next";
 import fetch from "isomorphic-fetch";
 import { FlexDynamic, FlexItem } from "../components/FlexDynamic";
+import { Button } from "../components/Button";
+import Link from "next/link";
 import { api } from "../lib/helpers";
 
-// dummy data
 const Arr = [
   { toMe: true, agent: "Tony", date: "01/01/2020", amount: 120.11 },
   { toMe: true, agent: "Steph", date: "01/01/2020", amount: 55.43 },
@@ -51,6 +52,9 @@ export default function Home({ users }: any) {
           );
         })}
       </Card>
+      <Link href="/sendmoney">
+        <Button>Send money</Button>
+      </Link>
     </FlexContainer>
   );
 }
