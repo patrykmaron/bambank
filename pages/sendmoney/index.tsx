@@ -73,7 +73,7 @@ export default function SendMoney({ users }: any) {
 }
 
 SendMoney.getInitialProps = async (ctx: NextPageContext) => {
-  const cookie = ctx.req.headers.cookie;
+  const cookie = ctx.req ? { cookie: ctx.req.headers.cookie } : undefined;
 
   const response = await fetch(api + "/api/profile", {
     headers: {
@@ -81,16 +81,18 @@ SendMoney.getInitialProps = async (ctx: NextPageContext) => {
     },
   });
 
-  if (response.status === 401 && !ctx.req) {
-    Router.replace("/login");
-    return {};
-  }
-
-  if (response.status === 401 && ctx.req) {
-    ctx.res.writeHead(302, {
-      Location: api + "/login",
-    });
-    ctx.res.end();
+  if (ctx.req) {
+    if (response.status === 401) {
+      ctx.res.writeHead(302, {
+        Location: api + "/login",
+      });
+      ctx.res.end();
+    }
+  } else {
+    if (response.status === 401) {
+      Router.replace("/login");
+      return {};
+    }
   }
 
   const json = await response.json();
