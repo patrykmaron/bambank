@@ -31,7 +31,7 @@ export default function SendMoney({ users }: any) {
     const json = await response.json();
     setMessage(json);
     if (response.status === 200) {
-      Router.reload();
+      Router.replace("/");
     }
   }
 
